@@ -4,6 +4,7 @@ import { IoMdHome } from 'react-icons/io';
 import { FaReadme } from 'react-icons/fa6';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function MenuBar({ open }) {
   const [items, setItems] = useState([]);
@@ -52,13 +53,13 @@ export default function MenuBar({ open }) {
           {items.options &&
             items.options.map(({ name, link, icon }) => {
               return (
-                <a
-                  href={link}
+                <Link
+                  to={link}
                   key={name}
                   className="text-xl cursor-pointer hover:bg-yellow-base hover:text-black w-full p-2 rounded-md flex items-center gap-4"
                 >
                   {renderIcon(icon)} <li className="font-bold">{name}</li>
-                </a>
+                </Link>
               );
             })}
         </ul>

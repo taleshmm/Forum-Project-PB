@@ -2,6 +2,7 @@ import { MdAccountCircle } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { useState, useEffect } from 'react';
 import MenuBar from '../atoms/MenuBar';
+import { Link } from 'react-router-dom';
 
 export default function MenuHeader() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -30,13 +31,14 @@ export default function MenuHeader() {
           {items.options &&
             items.options.map(({ name, link }) => {
               return (
-                <a
-                  href={link}
-                  key={name}
-                  className="text-lg text-white cursor-pointer hover:text-black "
-                >
-                  <li className="font-bold ">{name}</li>
-                </a>
+                <li key={name} className="font-bold">
+                  <Link
+                    to={link}
+                    className="text-lg text-white hover:text-black"
+                  >
+                    {name}
+                  </Link>
+                </li>
               );
             })}
         </ul>
