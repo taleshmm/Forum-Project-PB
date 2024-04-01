@@ -7,7 +7,7 @@
     },
     {
       "name": "Criar tópico",
-      "link": "/",
+      "link": "/create",
       "icon": "IoCreateSharp"
     },
     {
