@@ -1,0 +1,24 @@
+{
+  "options": [
+    {
+      "name": "Home",
+      "link": "/",
+      "icon": "IoMdHome"
+    },
+    {
+      "name": "Criar tópico",
+      "link": "/",
+      "icon": "IoCreateSharp"
+    },
+    {
+      "name": "Ler tópicos",
+      "link": "/",
+      "icon": "FaReadme"
+    },
+    {
+      "name": "Dúvidas",
+      "link": "/",
+      "icon": "FaQuestionCircle"
+    }
+  ]
+}
