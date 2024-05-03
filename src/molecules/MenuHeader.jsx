@@ -11,7 +11,7 @@ export default function MenuHeader() {
   useEffect(() => {
     async function loadJson() {
       try {
-        const response = await fetch('src/assets/datas-menu.json');
+        const response = await fetch('../src/assets/datas-menu.json');
         const data = await response.json();
         setItems(data);
       } catch (error) {
@@ -34,7 +34,7 @@ export default function MenuHeader() {
                 <li key={name} className="font-bold">
                   <Link
                     to={link}
-                    className="text-lg text-white hover:text-black"
+                    className="text-lg text-white hover:text-yellow-base"
                   >
                     {name}
                   </Link>

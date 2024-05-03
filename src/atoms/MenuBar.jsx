@@ -12,7 +12,7 @@ export default function MenuBar({ open }) {
   useEffect(() => {
     async function loadJson() {
       try {
-        const response = await fetch('src/assets/datas-menu.json');
+        const response = await fetch('../src/assets/datas-menu.json');
         const data = await response.json();
         setItems(data);
       } catch (error) {

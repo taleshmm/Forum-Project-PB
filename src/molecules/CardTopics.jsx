@@ -1,71 +1,75 @@
 /* eslint-disable react/prop-types */
-import { IoStarOutline } from 'react-icons/io5';
 import { IoStarHalfSharp } from 'react-icons/io5';
 import { IoStarSharp } from 'react-icons/io5';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-export default function CardTopics({ data }) {
-  const [isExpanded, setIsExpanded] = useState(false);
+export default function CardTopics({ story }) {
+  const navigate = useNavigate();
 
   function renderStars(num) {
-    if (num < 5) {
-      let iconsPrint = [];
-      const numInt = parseInt(num);
-      const numDec = num % 1;
-      const diferenceStar = 5 - num;
-      const numIntDiference = parseInt(diferenceStar);
+    const points = num / 50;
+    let iconsPrint = [];
+    if (points >= 5) {
+      return Array.from({ length: 5 }, (_, index) => (
+        <IoStarSharp className="text-yellow-600" key={index} />
+      ));
+    }
+    if (points < 5) {
+      const numInt = parseInt(points);
+      const numDec = points % 1;
 
       for (let i = 0; i < numInt; i++) {
-        iconsPrint.push(<IoStarSharp className="text-yellow-base" key={i} />);
+        iconsPrint.push(
+          <IoStarSharp className="text-yellow-600" key={`${i}-sh`} />
+        );
       }
 
       if (numDec !== 0) {
         iconsPrint.push(
-          <IoStarHalfSharp className="text-yellow-base" key={`${numDec}-st`} />
+          <IoStarHalfSharp className="text-yellow-600" key={`${numDec}-st`} />
         );
       }
-      for (let i = 0; i < numIntDiference; i++) {
-        iconsPrint.push(<IoStarOutline className="text-slate-400" key={i} />);
-      }
+
       return iconsPrint;
     }
-
-    return Array.from({ length: num }, (_, index) => (
-      <IoStarSharp className="text-yellow-base" key={index} />
-    ));
   }
 
-  const handleToggleExpand = () => {
-    setIsExpanded(!isExpanded);
+  const handleCardClick = () => {
+    navigate(`/topics/${story.id}`, { state: { story } });
   };
+
   const truncatedTitle =
-    data.title.length > 35 ? data.title.slice(0, 35) + '...' : data.title;
+    story.title.length > 35 ? story.title.slice(0, 35) + '...' : story.title;
   return (
     <section className="bg-zinc-800 w-full max-w-[350px] rounded-xl p-4 text-white">
-      <h4 className="text-right text-slate-400 text-xs">{data.theme}</h4>
+      <h4 className="text-right text-slate-400 text-xs">#{story.type}</h4>
       <div className="flex items-center justify-start gap-3">
         <div
           className="h-14 w-14 rounded-full bg-white bg-cover bg-center"
-          style={{ backgroundImage: `url(${data.photo})` }}
+          style={{
+            backgroundImage: `url(${
+              story.photo
+                ? story.photo
+                : 'https://images.pexels.com/photos/3207694/pexels-photo-3207694.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+            })`,
+          }}
         ></div>
         <div className="flex flex-col">
-          <h3>{data.name}</h3>
-          <div className="flex">{renderStars(data.star)}</div>
+          <h3>{story.by}</h3>
+          <div className="flex">{renderStars(story.score)}</div>
         </div>
       </div>
       <div className="mt-4 flex flex-col gap-2">
-        <h2 className="font-bold text-blue-400" title={data.title}>
+        <h2 className="font-bold text-blue-400" title={story.title}>
           {truncatedTitle}
         </h2>
-        <p className={`${isExpanded ? '' : 'line-clamp-3'}`}>{data.text}</p>
-        {!isExpanded && (
-          <button
-            className="text-yellow-base hover:underline"
-            onClick={handleToggleExpand}
-          >
-            See more
-          </button>
-        )}
+        <p className="line-clamp-3">{story.text}</p>
+        <button
+          className="text-yellow-base hover:underline cursor-pointer"
+          onClick={handleCardClick}
+        >
+          Ver mais
+        </button>
       </div>
     </section>
   );

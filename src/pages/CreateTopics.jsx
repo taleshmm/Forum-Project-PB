@@ -1,4 +1,5 @@
 import ContainerCreateTopics from '../organism/ContainerCreateTopics';
+import Footer from '../organism/Footer';
 import Header from '../organism/Header';
 
 export default function CreateTopics() {
@@ -6,6 +7,7 @@ export default function CreateTopics() {
     <section>
       <Header />
       <ContainerCreateTopics />
+      <Footer />
     </section>
   );
 }
