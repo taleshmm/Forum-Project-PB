@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
+import '../atoms/styles/CommentInput.css';
 
 export default function CommentInput({ onSubmit }) {
   const [comment, setComment] = useState('');
@@ -25,33 +25,27 @@ export default function CommentInput({ onSubmit }) {
   };
 
   return (
-    <div className="bg-gray-800 rounded-xl p-4 my-4">
-      <label
-        htmlFor="comment"
-        className="block text-sm font-medium text-gray-400 mb-2"
-      >
+    <div className="comment-container">
+      <label htmlFor="comment" className="label">
         Escreva um comentário
       </label>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Autor"
-          className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:border-blue-500 mb-4"
+          className="input-text"
           value={author}
           onChange={handleAuthor}
-        ></input>
+        />
         <textarea
           id="comment"
-          className="w-full bg-gray-700 border border-gray-600 rounded-md py-2 px-4 text-white focus:outline-none focus:border-blue-500"
+          className="textarea"
           rows="4"
           value={comment}
           onChange={handleChange}
           placeholder="Digite seu comentário aqui..."
-        ></textarea>
-        <button
-          type="submit"
-          className="mt-2 bg-zinc-300 hover:bg-green-500 text-black font-semibold py-2 px-4 rounded-md focus:outline-none focus:bg-blue-600"
-        >
+        />
+        <button type="submit" className="button">
           Comentar
         </button>
       </form>

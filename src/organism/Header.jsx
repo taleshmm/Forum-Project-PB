@@ -1,19 +1,21 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import MenuHeader from '../molecules/MenuHeader';
+import '../organism/styles/Header.css';
 
 export default function Header() {
   return (
-    <header className="h-16 bg-slate-800">
-      <nav className="w-full h-full flex items-center justify-between px-4">
-        <Link to="/" className="flex items-center gap-4">
+    <header className="header">
+      <nav className="nav">
+        <Link to="/" className="logo-link">
           <img
             src="../src/assets/logo.png"
             alt="Logo site"
-            className="h-12 w-12 rounded-full"
+            className="logo-img"
           />
-          <h1 className="text-yellow-base text-2xl letter-theme">Ekros</h1>
+          <h1 className="logo-text">Ekros</h1>
         </Link>
-        <MenuHeader />
+        <MenuHeader className="menu" />
       </nav>
     </header>
   );

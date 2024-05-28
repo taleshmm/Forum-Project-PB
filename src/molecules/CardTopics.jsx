@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { IoStarHalfSharp } from 'react-icons/io5';
 import { IoStarSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
+import '../molecules/styles/CardTopics.css';
 
 export default function CardTopics({ story }) {
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ export default function CardTopics({ story }) {
     let iconsPrint = [];
     if (points >= 5) {
       return Array.from({ length: 5 }, (_, index) => (
-        <IoStarSharp className="text-yellow-600" key={index} />
+        <IoStarSharp className="star-icon" key={index} />
       ));
     }
     if (points < 5) {
@@ -19,15 +19,11 @@ export default function CardTopics({ story }) {
       const numDec = points % 1;
 
       for (let i = 0; i < numInt; i++) {
-        iconsPrint.push(
-          <IoStarSharp className="text-yellow-600" key={`${i}-sh`} />
-        );
+        iconsPrint.push(<IoStarSharp className="star-icon" key={`${i}-sh`} />);
       }
 
       if (numDec !== 0) {
-        iconsPrint.push(
-          <IoStarHalfSharp className="text-yellow-600" key={`${numDec}-st`} />
-        );
+        iconsPrint.push(<IoStarHalfSharp className="star-icon" key={`${numDec}-st`} />);
       }
 
       return iconsPrint;
@@ -41,11 +37,11 @@ export default function CardTopics({ story }) {
   const truncatedTitle =
     story.title.length > 35 ? story.title.slice(0, 35) + '...' : story.title;
   return (
-    <section className="bg-zinc-800 w-full max-w-[350px] rounded-xl p-4 text-white">
-      <h4 className="text-right text-slate-400 text-xs">#{story.type}</h4>
+    <section className="card-topics" onClick={handleCardClick}>
+      <h4>#{story.type}</h4>
       <div className="flex items-center justify-start gap-3">
         <div
-          className="h-14 w-14 rounded-full bg-white bg-cover bg-center"
+          className="user-photo"
           style={{
             backgroundImage: `url(${
               story.photo
@@ -54,22 +50,17 @@ export default function CardTopics({ story }) {
             })`,
           }}
         ></div>
-        <div className="flex flex-col">
+        <div className="user-info">
           <h3>{story.by}</h3>
-          <div className="flex">{renderStars(story.score)}</div>
+          <div className="stars">{renderStars(story.score)}</div>
         </div>
       </div>
       <div className="mt-4 flex flex-col gap-2">
-        <h2 className="font-bold text-blue-400" title={story.title}>
+        <h2 className="title" title={story.title}>
           {truncatedTitle}
         </h2>
-        <p className="line-clamp-3">{story.text}</p>
-        <button
-          className="text-yellow-base hover:underline cursor-pointer"
-          onClick={handleCardClick}
-        >
-          Ver mais
-        </button>
+        <p className="description">{story.text}</p>
+        <button className="read-more">Ver mais</button>
       </div>
     </section>
   );

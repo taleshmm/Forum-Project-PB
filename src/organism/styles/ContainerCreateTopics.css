@@ -1,0 +1,84 @@
+/* styles.css */
+.container-create-topics {
+  width: 100%;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  height: 100vh;
+  color: white;
+}
+
+.letter-theme {
+  text-align: center;
+  font-size: 1.875rem;
+}
+
+.form-container {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-element {
+  margin-bottom: 1.5rem;
+}
+
+.form-element label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  outline: none;
+  color: #000;
+}
+
+.form-input:focus {
+  border-color: #f59e0b;
+}
+
+.form-select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  outline: none;
+  color: #000;
+}
+
+.form-select:focus {
+  border-color: #f59e0b;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #000;
+  border-radius: 0.5rem;
+  outline: none;
+  color: #000;
+}
+
+.form-textarea:focus {
+  border-color: #f59e0b;
+}
+
+.btn-create-topic {
+  width: 100%;
+  background-color: #f59e0b;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.btn-create-topic:hover {
+  background-color: #fbbf24;
+}

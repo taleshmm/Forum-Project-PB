@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import { BiSolidLike, BiSolidDislike } from 'react-icons/bi';
 import { useState, useEffect } from 'react';
+import '../atoms/styles/Likes.css';
 
 export default function Likes({ like, colorLikes }) {
   const [muchLike, setMuchLike] = useState(like);
@@ -39,26 +39,18 @@ export default function Likes({ like, colorLikes }) {
   };
 
   return (
-    <section
-      className={`h-10 ${
-        colorLikes ? colorLikes : 'text-slate-800'
-      } flex items-center gap-5`}
-    >
-      <div className="flex gap-2 items-center">
+    <section className={`likes-section ${colorLikes ? '' : 'text-color'}`}>
+      <div className="like-container">
         <BiSolidLike
           onClick={handleLike}
-          className={`cursor-pointer text-2xl ${
-            likeClicked ? 'text-blue-500' : ''
-          }`}
+          className={`like-icon ${likeClicked ? 'active' : ''}`}
         />
         <span>{muchLike}</span>
       </div>
-      <div className="flex gap-2 items-center">
+      <div className="dislike-container">
         <BiSolidDislike
           onClick={handleDislike}
-          className={`cursor-pointer text-2xl ${
-            dislikeClicked ? 'text-red-500' : ''
-          }`}
+          className={`dislike-icon ${dislikeClicked ? 'active' : ''}`}
         />
         <span>{muchDislike}</span>
       </div>

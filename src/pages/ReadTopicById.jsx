@@ -6,6 +6,7 @@ import { MdOutlineArrowBackIos } from 'react-icons/md';
 import Comments from '../molecules/Comments';
 import CommentInput from '../atoms/CommentInput';
 import { getStoryById } from '../../services/connections';
+import '../pages/styles/ReadTopicsById.css'; 
 
 export default function ReadTopicById() {
   const [story, setStory] = useState(null);
@@ -49,28 +50,28 @@ export default function ReadTopicById() {
   };
 
   return (
-    <section className="text-white">
+    <section className="custom-container">
       <Header />
       <div
-        className="xl:fixed text-slate-300 flex items-center ml-4 mt-8 gap-2 cursor-pointer hover:text-yellow-base"
+        className="custom-go-back flex items-center ml-4 mt-8 gap-2 cursor-pointer"
         onClick={handleGoBack}
       >
-        <MdOutlineArrowBackIos className="text-2xl" />
+        <MdOutlineArrowBackIos className="custom-go-back-icon" />
         <span>Voltar</span>
       </div>
 
       {story && (
-        <div className="max-w-screen-lg mx-auto mt-8 px-4">
-          <h1 className="text-2xl font-bold text-green-400 mb-4">
+        <div className="custom-content">
+          <h1 className="custom-title">
             {story.title}
           </h1>
-          <p className="text-gray-300 mb-4">By: {story.by}</p>
-          <p className="text-gray-300 mb-4">
+          <p className="custom-author">By: {story.by}</p>
+          <p className="custom-text">
             {story.text.replace(/[<>]/g, '')}
           </p>
-          <div className="border-t border-gray-700 mt-8 pt-4">
+          <div className="custom-divider">
             <Likes
-              colorLikes="text-zinc-300"
+              colorLikes="custom-likes"
               like={
                 story.score
                   ? story.score
@@ -78,7 +79,7 @@ export default function ReadTopicById() {
               }
             />
             <CommentInput onSubmit={handleCommentSubmit} />
-            <h2 className="text-xl font-bold text-green-400 mb-4 mt-6">
+            <h2 className="custom-comments-title">
               Comments
             </h2>
             {commentsLocal.map((data) => (

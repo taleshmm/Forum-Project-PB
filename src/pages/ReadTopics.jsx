@@ -6,6 +6,7 @@ import CardStories from '../molecules/CardStories';
 import { MdOutlineArrowBackIos } from 'react-icons/md';
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import Loading from '../atoms/Loading';
+import '../pages/styles/ReadTopics.css';
 
 export default function ReadTopics() {
   const [topStoriesIds, setTopStoriesIds] = useState([]);
@@ -48,7 +49,7 @@ export default function ReadTopics() {
       {isLoading ? (
         <Loading />
       ) : (
-        <section className="w-full py-8 px-4 h-full text-white">
+        <section className="read-topics-container">
           <h2 className="letter-theme text-center text-3xl">Posts</h2>
           <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
             {topStoriesIds.length > 0 &&
@@ -57,7 +58,7 @@ export default function ReadTopics() {
 
           <div className="flex justify-around items-center mt-6">
             <button
-              className="bg-yellow-base hover:bg-zinc-400 text-black cursor-pointer font-bold py-2 px-4 rounded"
+              className="prev-button"
               onClick={prevPage}
               disabled={currentPage === 1}
             >
@@ -67,7 +68,7 @@ export default function ReadTopics() {
               {currentPage} de {parseInt(topStoriesIds.length / 8)}
             </p>
             <button
-              className="bg-yellow-base hover:bg-zinc-400 text-black cursor-pointer font-bold py-2 px-4 rounded"
+              className="next-button"
               onClick={nextPage}
               disabled={currentPage * itemsPerPage >= topStoriesIds.length}
             >

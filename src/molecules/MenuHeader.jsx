@@ -1,8 +1,9 @@
+import { useState, useEffect } from 'react';
 import { MdAccountCircle } from 'react-icons/md';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { useState, useEffect } from 'react';
 import MenuBar from '../atoms/MenuBar';
 import { Link } from 'react-router-dom';
+import '../molecules/styles/MenuHeader.css';
 
 export default function MenuHeader() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -24,33 +25,24 @@ export default function MenuHeader() {
   function handleMenuBar() {
     setIsOpenMenu(!isOpenMenu);
   }
+
   return (
-    <>
-      <div className="flex items-center gap-4 w-4/5 justify-end h-full">
-        <ul className="sm:flex hidden items-center w-full h-full gap-4 justify-end ">
-          {items.options &&
-            items.options.map(({ name, link }) => {
-              return (
-                <li key={name} className="font-bold">
-                  <Link
-                    to={link}
-                    className="text-lg text-white hover:text-yellow-base"
-                  >
-                    {name}
-                  </Link>
-                </li>
-              );
-            })}
-        </ul>
-        <div className="flex items-center gap-4 h-full w-auto">
-          <MdAccountCircle className="text-yellow-base text-2xl cursor-pointer" />
-          <GiHamburgerMenu
-            className="text-yellow-base text-2xl cursor-pointer"
-            onClick={handleMenuBar}
-          />
-        </div>
+    <div className="menu-header">
+      <ul className="menu-list sm:flex hidden items-center gap-4">
+        {items.options &&
+          items.options.map(({ name, link }) => (
+            <li key={name} className="menu-list-item">
+              <Link to={link} className="menu-link">
+                {name}
+              </Link>
+            </li>
+          ))}
+      </ul>
+      <div className="menu-icons">
+        <MdAccountCircle className="menu-icon" />
+        <GiHamburgerMenu className="menu-icon" onClick={handleMenuBar} />
       </div>
       {isOpenMenu && <MenuBar open={handleMenuBar} />}
-    </>
+    </div>
   );
 }

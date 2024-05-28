@@ -1,0 +1,53 @@
+.card-topics {
+    background-color: #000000; /* alterada para corresponder à cor bg-zinc-800 do Tailwind */
+    width: 100%;
+    max-width: 350px;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    color: #fff;
+  }
+  
+  .card-topics h4 {
+    text-align: right;
+    color: #a0aec0;
+    font-size: 0.75rem;
+  }
+  
+  .card-topics .user-photo {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .card-topics .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-topics .title {
+    font-weight: bold;
+    color: #4299e1;
+  }
+  
+  .card-topics .description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .card-topics .read-more {
+    color: #ecc94b;
+    cursor: pointer;
+  }
+  
+  .card-topics .stars {
+    display: flex;
+  }
+  
+  .card-topics .star-icon {
+    color: #ecc94b;
+  }
+  
