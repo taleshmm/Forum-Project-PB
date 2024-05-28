@@ -1,29 +1,24 @@
+import React from 'react';
+import '../organism/styles/ContainerCreateTopics.css';
+
 export default function ContainerCreateTopics() {
   return (
-    <section className="w-full py-8 px-4 h-screen text-white">
-      <h2 className="letter-theme text-center text-3xl">Criar Tópico</h2>
-      <form className="mt-8 w-full max-w-md mx-auto">
-        <div className="mb-6">
-          <label htmlFor="titulo" className="block mb-2">
-            Título do Tópico
-          </label>
+    <section className="container-create-topics">
+      <h2 className="letter-theme">Criar Tópico</h2>
+      <form className="form-container">
+        <div className="form-element">
+          <label htmlFor="titulo">Título do Tópico</label>
           <input
             type="text"
             id="titulo"
             name="titulo"
             placeholder="Digite o título do tópico"
-            className="w-full px-3 py-2 border rounded-lg outline-none text-black focus:border-yellow-500"
+            className="form-input"
           />
         </div>
-        <div className="mb-6">
-          <label htmlFor="tipo" className="block mb-2">
-            Tipo de Tópico
-          </label>
-          <select
-            id="tipo"
-            name="tipo"
-            className="w-full px-3 py-2 border rounded-lg outline-none text-black focus:border-yellow-500"
-          >
+        <div className="form-element">
+          <label htmlFor="tipo">Tipo de Tópico</label>
+          <select id="tipo" name="tipo" className="form-select">
             <option value="" disabled selected>
               Selecione o tipo de tópico
             </option>
@@ -33,22 +28,17 @@ export default function ContainerCreateTopics() {
             <option value="outro">Outro</option>
           </select>
         </div>
-        <div className="mb-6">
-          <label htmlFor="descricao" className="block mb-2">
-            Descrição
-          </label>
+        <div className="form-element">
+          <label htmlFor="descricao">Descrição</label>
           <textarea
             id="descricao"
             name="descricao"
             placeholder="Digite aqui a descrição do tópico"
             rows="6"
-            className="w-full px-3 py-2 border rounded-lg outline-none text-black focus:border-yellow-500"
+            className="form-textarea"
           ></textarea>
         </div>
-        <button
-          type="submit"
-          className="w-full bg-yellow-base hover:bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg"
-        >
+        <button type="submit" className="btn-create-topic">
           Criar Tópico
         </button>
       </form>

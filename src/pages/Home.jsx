@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from '../organism/Header';
 import BannerMain from '../organism/BannerMain';
 import Topics from '../organism/Topics';

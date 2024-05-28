@@ -1,10 +1,11 @@
-/* eslint-disable react/prop-types */
+
 import { IoCreateSharp } from 'react-icons/io5';
 import { IoMdHome } from 'react-icons/io';
 import { FaReadme } from 'react-icons/fa6';
 import { FaQuestionCircle } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../atoms/styles/MenuBar.css';
 
 export default function MenuBar({ open }) {
   const [items, setItems] = useState([]);
@@ -39,26 +40,20 @@ export default function MenuBar({ open }) {
 
   return (
     <div
-      className={`fixed top-0 right-0 w-full h-full bg-white/50 ${
-        open ? 'block' : 'hidden'
-      } z-10`}
+      className={`menu-bar ${open ? '' : 'menu-hidden'}`}
       onClick={open}
     >
-      <nav
-        className={`fixed top-0 p-5 ${
-          open ? 'right-0' : '-right-full'
-        } w-3/5 max-w-80 z-11 h-screen bg-zinc-800 shadow-lg overflow-y-auto transition-transform duration-300`}
-      >
-        <ul className="text-yellow-base flex flex-col items-start justify-center gap-1">
+      <nav className={`nav-bar ${open ? 'right-0' : ''}`}>
+        <ul>
           {items.options &&
             items.options.map(({ name, link, icon }) => {
               return (
                 <Link
                   to={link}
                   key={name}
-                  className="text-xl cursor-pointer hover:bg-yellow-base hover:text-black w-full p-2 rounded-md flex items-center gap-4"
+                  className="nav-link"
                 >
-                  {renderIcon(icon)} <li className="font-bold">{name}</li>
+                  {renderIcon(icon)} <li>{name}</li>
                 </Link>
               );
             })}

@@ -1,3 +1,4 @@
+import React from 'react';
 export default function BannerMain() {
   return (
     <section className="w-screen h-screen bg-[url('../src/assets/cerwalpeper.jpeg')] bg-cover flex justify-end items-end">

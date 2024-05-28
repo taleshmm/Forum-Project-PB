@@ -1,7 +1,10 @@
+import React from 'react';
 import CardTopics from '../molecules/CardTopics';
 import { useEffect, useState } from 'react';
 import { getStoryById } from '../../services/connections';
 import Loading from '../atoms/Loading';
+import '../organism/styles/Topics.css';
+
 export default function Topics() {
   const [datas, setDatas] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -45,17 +48,16 @@ export default function Topics() {
     }
     loadPricipals();
   }, []);
+
   return (
-    <section className="w-screen h-full bg-slate-100 py-16 px-4 flex flex-col justify-center items-center">
-      <h2 className="letter-theme text-3xl shadow-yellow">
-        Principais Tópicos
-      </h2>
+    <section className="section-container">
+      <h2 className="section-title">Principais Tópicos</h2>
       {isLoading ? (
-        <Loading colorLoad="border-zinc-800" />
+        <Loading className="loading" />
       ) : (
-        <div className="grid grid-cols-1 items-center justify-items-center mt-10 flex-col gap-4 md:grid-cols-2 xl:grid-cols-3 max-w-[1300px]">
+        <div className="card-container">
           {datas.slice(0, 6).map((item) => (
-            <CardTopics story={item} key={item.id} />
+            <CardTopics story={item} key={item.id} className="card" />
           ))}
         </div>
       )}

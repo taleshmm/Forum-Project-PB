@@ -5,6 +5,7 @@ import { IoStarHalfSharp } from 'react-icons/io5';
 import { IoStarSharp } from 'react-icons/io5';
 import Likes from '../atoms/Likes';
 import { useNavigate } from 'react-router-dom';
+import '../molecules/styles/CardStories.css'; 
 
 export default function CardStories({ id }) {
   const [story, setStory] = useState(null);
@@ -75,38 +76,34 @@ export default function CardStories({ id }) {
   };
 
   return (
-    <section
-      onClick={handleCardClick}
-      className="bg-zinc-300 hover:bg-white hover:cursor-pointer w-full max-w-[350px] rounded-xl px-4 pt-4 grid"
-      style={{ gridTemplateRows: '1fr 40px' }}
-    >
+    <section onClick={handleCardClick} className="card-stories">
       {story && (
         <div>
-          <h4 className="text-right text-slate-600 text-xs">#{story.type}</h4>
-          <div className="flex items-center justify-start gap-3">
+          <h4 className="type">#{story.type}</h4>
+          <div className="profile">
             <div
-              className="h-14 w-14 rounded-full bg-black bg-cover bg-center"
+              className="avatar"
               style={{
                 backgroundImage: `url(${
                   story.photo ? story.photo : 'src/assets/logo.png'
                 })`,
               }}
             ></div>
-            <div className="flex flex-col">
-              <h3 className="text-zinc-800 font-bold">{story.by}</h3>
-              <div className="flex">{renderStars(story.score)}</div>
+            <div className="info">
+              <h3 className="name">{story.by}</h3>
+              <div className="stars">{renderStars(story.score)}</div>
             </div>
           </div>
-          <div className="mt-4 flex flex-col gap-2">
-            <h2 className="font-bold text-green-800" title={story.title}>
+          <div className="text">
+            <h2 className="title" title={story.title}>
               {truncatedTitle}
             </h2>
-            <p className="text-black">{truncatedText}</p>
+            <p>{truncatedText}</p>
           </div>
         </div>
       )}
       {story && (
-        <div>
+        <div className="likes">
           <Likes
             like={
               story.score

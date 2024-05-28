@@ -1,7 +1,7 @@
-/* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 import { getStoryById } from '../../services/connections';
 import Likes from '../atoms/Likes';
+import '../molecules/styles/Comments.css';
 
 export default function Comments({ id, newComment, api }) {
   const [data, setData] = useState(null);
@@ -42,25 +42,19 @@ export default function Comments({ id, newComment, api }) {
   return (
     <>
       {data && (
-        <div className="bg-gray-800 rounded-xl p-4 my-4">
-          <p className="text-gray-400 text-sm mb-2">{data.by}</p>
-          <p className="text-white">
+        <div className="comment-container">
+          <p className="author">{data.by}</p>
+          <p className="comment-text">
             {renderText()}{' '}
             {data.text && data.text.length > 330 ? (
-              <button
-                className="text-green-500 hover:underline cursor-pointer"
-                onClick={handleToggleExpand}
-              >
+              <button className="more-button" onClick={handleToggleExpand}>
                 {isExpanded ? 'Ver menos' : 'Ver mais'}
               </button>
             ) : (
               ''
             )}
           </p>
-          <Likes
-            like={parseInt((Math.random() * 1000).toFixed(4))}
-            colorLikes="text-zinc-300"
-          />
+          <Likes like={parseInt((Math.random() * 1000).toFixed(4))} className="likes" />
         </div>
       )}
     </>

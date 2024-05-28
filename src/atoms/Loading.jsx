@@ -1,11 +1,12 @@
-/* eslint-disable react/prop-types */
+import React from 'react';
+import '../atoms/styles/Loading.css';
+
 export default function Loading({ colorLoad }) {
   return (
-    <div className="flex items-center justify-center h-[600px]">
+    <div className="loader-container">
       <div
-        className={`animate-spin rounded-full h-10 w-10 border-b-2 ${
-          colorLoad ? colorLoad : 'border-gray-200'
-        }`}
+        className="loader"
+        style={{ borderBottomColor: colorLoad ? colorLoad : '#cbd5e0' }}
       ></div>
     </div>
   );
