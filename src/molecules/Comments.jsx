@@ -47,14 +47,17 @@ export default function Comments({ id, newComment, api }) {
           <p className="comment-text">
             {renderText()}{' '}
             {data.text && data.text.length > 330 ? (
-              <button className="more-button" onClick={handleToggleExpand}>
+              <button
+                className="more-button-comment"
+                onClick={handleToggleExpand}
+              >
                 {isExpanded ? 'Ver menos' : 'Ver mais'}
               </button>
             ) : (
               ''
             )}
           </p>
-          <Likes like={parseInt((Math.random() * 1000).toFixed(4))} className="likes" />
+          <Likes like={parseInt((Math.random() * 1000).toFixed(4))} />
         </div>
       )}
     </>

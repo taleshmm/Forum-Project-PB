@@ -1,66 +1,67 @@
 .card-stories {
-    background-color: #cbd5e0;
-    cursor: pointer;
-    width: 100%;
-    max-width: 350px;
-    border-radius: 1.5rem;
-    padding: 1rem 1rem 0 1rem;
-    display: grid;
-    grid-template-rows: 1fr 40px;
-  }
-  
-  .card-stories:hover {
-    background-color: #fff;
-  }
-  
-  .card-stories .type {
-    text-align: right;
-    color: #718096;
-    font-size: 0.75rem;
-  }
-  
-  .card-stories .profile {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0.75rem;
-  }
-  
-  .card-stories .profile .avatar {
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 50%;
-    background-color: #000;
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .card-stories .profile .info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card-stories .profile .info .name {
-    color: #4a5568;
-    font-weight: bold;
-  }
-  
-  .card-stories .stars {
-    display: flex;
-  }
-  
-  .card-stories .title {
-    font-weight: bold;
-    color: #38a169;
-  }
-  
-  .card-stories .text {
-    color: #000;
-  }
-  
-  .card-stories .likes {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: flex-end;
-  }
-  
+  background-color: #cbd5e0;
+  cursor: pointer;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1.5rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: 1fr 40px;
+}
+
+.card-stories:hover {
+  background-color: #fff;
+}
+
+.type {
+  text-align: right;
+  color: #718096;
+  font-size: 0.75rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+}
+
+.profile .avatar {
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  background-color: #000;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-stories .profile .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-stories .profile .info .name {
+  color: #4a5568;
+  font-weight: bold;
+}
+
+.stars {
+  display: flex;
+  color: #764926;
+}
+
+.title {
+  font-weight: bold;
+  color: #38a169;
+  margin-bottom: 0.6rem;
+}
+
+.text {
+  color: #000;
+  margin-top: 1rem;
+}
+
+.likes {
+  display: flex;
+  justify-content: flex-end;
+}

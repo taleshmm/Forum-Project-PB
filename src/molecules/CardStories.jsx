@@ -5,7 +5,7 @@ import { IoStarHalfSharp } from 'react-icons/io5';
 import { IoStarSharp } from 'react-icons/io5';
 import Likes from '../atoms/Likes';
 import { useNavigate } from 'react-router-dom';
-import '../molecules/styles/CardStories.css'; 
+import '../molecules/styles/CardStories.css';
 
 export default function CardStories({ id }) {
   const [story, setStory] = useState(null);
@@ -35,7 +35,7 @@ export default function CardStories({ id }) {
     let iconsPrint = [];
     if (points >= 5) {
       return Array.from({ length: 5 }, (_, index) => (
-        <IoStarSharp className="text-yellow-600" key={index} />
+        <IoStarSharp key={index} />
       ));
     }
     if (points < 5) {
@@ -43,15 +43,11 @@ export default function CardStories({ id }) {
       const numDec = points % 1;
 
       for (let i = 0; i < numInt; i++) {
-        iconsPrint.push(
-          <IoStarSharp className="text-yellow-600" key={`${i}-sh`} />
-        );
+        iconsPrint.push(<IoStarSharp key={`${i}-sh`} />);
       }
 
       if (numDec !== 0) {
-        iconsPrint.push(
-          <IoStarHalfSharp className="text-yellow-600" key={`${numDec}-st`} />
-        );
+        iconsPrint.push(<IoStarHalfSharp key={`${numDec}-st`} />);
       }
 
       return iconsPrint;
@@ -76,9 +72,9 @@ export default function CardStories({ id }) {
   };
 
   return (
-    <section onClick={handleCardClick} className="card-stories">
+    <section className="card-stories">
       {story && (
-        <div>
+        <div onClick={handleCardClick}>
           <h4 className="type">#{story.type}</h4>
           <div className="profile">
             <div
@@ -105,6 +101,7 @@ export default function CardStories({ id }) {
       {story && (
         <div className="likes">
           <Likes
+            colorLikes="#000"
             like={
               story.score
                 ? story.score

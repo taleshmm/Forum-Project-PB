@@ -50,19 +50,19 @@ export default function ReadTopics() {
         <Loading />
       ) : (
         <section className="read-topics-container">
-          <h2 className="letter-theme text-center text-3xl">Posts</h2>
-          <div className="grid justify-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
+          <h2 className="letter-theme">Posts</h2>
+          <div className="grid-container-post">
             {topStoriesIds.length > 0 &&
               getCurrentPageIds().map((id) => <CardStories key={id} id={id} />)}
           </div>
 
-          <div className="flex justify-around items-center mt-6">
+          <div className="container-arrows">
             <button
               className="prev-button"
               onClick={prevPage}
               disabled={currentPage === 1}
             >
-              <MdOutlineArrowBackIos className="text-xl" />
+              <MdOutlineArrowBackIos className="icon-arrow" />
             </button>
             <p>
               {currentPage} de {parseInt(topStoriesIds.length / 8)}
@@ -72,7 +72,7 @@ export default function ReadTopics() {
               onClick={nextPage}
               disabled={currentPage * itemsPerPage >= topStoriesIds.length}
             >
-              <MdOutlineArrowForwardIos className="text-xl" />
+              <MdOutlineArrowForwardIos className="icon-arrow" />
             </button>
           </div>
         </section>

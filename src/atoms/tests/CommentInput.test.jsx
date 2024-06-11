@@ -3,16 +3,6 @@ import { render, fireEvent } from '@testing-library/react';
 import CommentInput from '../CommentInput';
 
 describe('CommentInput', () => {
-  it('should render input fields and a button', () => {
-    const { getByPlaceholderText, getByLabelText, getByText } = render(
-      <CommentInput onSubmit={() => {}} />
-    );
-
-    expect(getByPlaceholderText('Autor')).toBeInTheDocument();
-    expect(getByLabelText('Escreva um comentário')).toBeInTheDocument();
-    expect(getByText('Comentar')).toBeInTheDocument();
-  });
-
   it('should update state when typing in input fields', () => {
     const { getByPlaceholderText, getByLabelText } = render(
       <CommentInput onSubmit={() => {}} />
@@ -22,7 +12,9 @@ describe('CommentInput', () => {
     const commentTextarea = getByLabelText('Escreva um comentário');
 
     fireEvent.change(authorInput, { target: { value: 'John' } });
-    fireEvent.change(commentTextarea, { target: { value: 'This is a test comment' } });
+    fireEvent.change(commentTextarea, {
+      target: { value: 'This is a test comment' },
+    });
 
     expect(authorInput.value).toBe('John');
     expect(commentTextarea.value).toBe('This is a test comment');
@@ -39,7 +31,9 @@ describe('CommentInput', () => {
     const submitButton = getByText('Comentar');
 
     fireEvent.change(authorInput, { target: { value: 'John' } });
-    fireEvent.change(commentTextarea, { target: { value: 'This is a test comment' } });
+    fireEvent.change(commentTextarea, {
+      target: { value: 'This is a test comment' },
+    });
     fireEvent.click(submitButton);
 
     expect(handleSubmit).toHaveBeenCalledWith({

@@ -1,28 +1,32 @@
-/* comments.css */
-
 .comment-container {
-    background-color: #1f2937;
-    border-radius: 0.75rem;
-    padding: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .author {
-    color: #9ca3af;
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .comment-text {
-    color: #ffffff;
-  }
-  
-  .comment-text button {
-    color: #22c55e;
-    cursor: pointer;
-  }
-  
-  .likes {
-    color: #ffffff; /* Ajuste para a cor branca */
-  }
-  
+  background-color: #1f2937;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.author {
+  color: #9ca3af;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.comment-text {
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.more-button-comment {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+.more-button-comment:hover {
+  color: #ecc94b;
+}
+
+.comment-text button {
+  color: #22c55e;
+  cursor: pointer;
+}

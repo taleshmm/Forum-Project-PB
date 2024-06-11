@@ -1,27 +1,58 @@
 .read-topics-container {
-    width: 100%;
-    padding: 8px 4px;
-    height: 100%;
-    color: white;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  color: white;
+}
+
+.letter-theme {
+  color: #fff;
+}
+
+.container-arrows {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.prev-button,
+.next-button {
+  background-color: #fbbf24;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.icon-arrow {
+  font-size: 1.1rem;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  background-color: #f9ca48;
+}
+
+.grid-container-post {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 949px) and (min-width: 700px) {
+  .grid-container-post {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-  
-  .letter-theme {
-    color: #fff;
+}
+
+@media (min-width: 950px) {
+  .grid-container-post {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
-  
-  .prev-button,
-  .next-button {
-    background-color: #fbbf24;
-    color: #000;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .prev-button:hover,
-  .next-button:hover {
-    background-color: #f9ca48;
-  }
-  
+}

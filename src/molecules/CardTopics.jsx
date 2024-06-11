@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { IoStarHalfSharp } from 'react-icons/io5';
 import { IoStarSharp } from 'react-icons/io5';
 import { useNavigate } from 'react-router-dom';
@@ -23,7 +24,9 @@ export default function CardTopics({ story }) {
       }
 
       if (numDec !== 0) {
-        iconsPrint.push(<IoStarHalfSharp className="star-icon" key={`${numDec}-st`} />);
+        iconsPrint.push(
+          <IoStarHalfSharp className="star-icon" key={`${numDec}-st`} />
+        );
       }
 
       return iconsPrint;
@@ -39,7 +42,7 @@ export default function CardTopics({ story }) {
   return (
     <section className="card-topics" onClick={handleCardClick}>
       <h4>#{story.type}</h4>
-      <div className="flex items-center justify-start gap-3">
+      <div className="card-name">
         <div
           className="user-photo"
           style={{
@@ -55,7 +58,7 @@ export default function CardTopics({ story }) {
           <div className="stars">{renderStars(story.score)}</div>
         </div>
       </div>
-      <div className="mt-4 flex flex-col gap-2">
+      <div className="card-datas">
         <h2 className="title" title={story.title}>
           {truncatedTitle}
         </h2>

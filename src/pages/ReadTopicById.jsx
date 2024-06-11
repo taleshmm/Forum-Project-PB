@@ -6,7 +6,7 @@ import { MdOutlineArrowBackIos } from 'react-icons/md';
 import Comments from '../molecules/Comments';
 import CommentInput from '../atoms/CommentInput';
 import { getStoryById } from '../../services/connections';
-import '../pages/styles/ReadTopicsById.css'; 
+import '../pages/styles/ReadTopicsById.css';
 
 export default function ReadTopicById() {
   const [story, setStory] = useState(null);
@@ -52,23 +52,16 @@ export default function ReadTopicById() {
   return (
     <section className="custom-container">
       <Header />
-      <div
-        className="custom-go-back flex items-center ml-4 mt-8 gap-2 cursor-pointer"
-        onClick={handleGoBack}
-      >
+      <div className="custom-go-back" onClick={handleGoBack}>
         <MdOutlineArrowBackIos className="custom-go-back-icon" />
         <span>Voltar</span>
       </div>
 
       {story && (
         <div className="custom-content">
-          <h1 className="custom-title">
-            {story.title}
-          </h1>
+          <h1 className="custom-title">{story.title}</h1>
           <p className="custom-author">By: {story.by}</p>
-          <p className="custom-text">
-            {story.text.replace(/[<>]/g, '')}
-          </p>
+          <p className="custom-text">{story.text.replace(/[<>]/g, '')}</p>
           <div className="custom-divider">
             <Likes
               colorLikes="custom-likes"
@@ -79,9 +72,7 @@ export default function ReadTopicById() {
               }
             />
             <CommentInput onSubmit={handleCommentSubmit} />
-            <h2 className="custom-comments-title">
-              Comments
-            </h2>
+            <h2 className="custom-comments-title">Comments</h2>
             {commentsLocal.map((data) => (
               <Comments key={data.id} newComment={data} api={false} />
             ))}

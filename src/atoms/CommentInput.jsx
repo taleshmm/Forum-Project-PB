@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import '../atoms/styles/CommentInput.css';
 
 export default function CommentInput({ onSubmit }) {

@@ -1,25 +1,24 @@
 .banner-main-container {
-    width: 100vw;
-    height: 100vh;
-    background-image: url('../src/assets/cerwalpeper.jpeg');
-    background-size: cover;
-    display: flex;
-    justify-content: end;
-    align-items: end;
-  }
-  
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/cerwalpeper.jpeg');
+  background-size: cover;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.banner-main-text {
+  padding: 1rem;
+  color: #f5c518;
+  font-family: 'letter-theme', sans-serif;
+  width: 11rem;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 640px) {
   .banner-main-text {
-    padding: 1rem;
-    color: #f5c518;
-    font-family: 'letter-theme', sans-serif;
-    width: 11rem;
-    font-size: 1.25rem;
+    width: 18rem;
+    margin-bottom: 5rem;
   }
-  
-  @media (min-width: 640px) {
-    .banner-main-text {
-      width: 18rem;
-      margin-bottom: 5rem;
-    }
-  }
-  
+}

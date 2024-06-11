@@ -39,7 +39,10 @@ export default function Likes({ like, colorLikes }) {
   };
 
   return (
-    <section className={`likes-section ${colorLikes ? '' : 'text-color'}`}>
+    <section
+      className="likes-section"
+      style={{ color: `${colorLikes ? colorLikes : 'text-color'}` }}
+    >
       <div className="like-container">
         <BiSolidLike
           onClick={handleLike}

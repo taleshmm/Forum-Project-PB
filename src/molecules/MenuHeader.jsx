@@ -28,7 +28,7 @@ export default function MenuHeader() {
 
   return (
     <div className="menu-header">
-      <ul className="menu-list sm:flex hidden items-center gap-4">
+      <ul className="menu-list">
         {items.options &&
           items.options.map(({ name, link }) => (
             <li key={name} className="menu-list-item">

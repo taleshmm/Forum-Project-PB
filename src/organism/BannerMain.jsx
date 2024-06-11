@@ -1,8 +1,9 @@
 import React from 'react';
+import '../organism/styles/BannerMain.css';
 export default function BannerMain() {
   return (
-    <section className="w-screen h-screen bg-[url('../src/assets/cerwalpeper.jpeg')] bg-cover flex justify-end items-end">
-      <h1 className="p-4 text-yellow-base letter-theme w-44 text-xl xl:w-72 xl:mb-20">
+    <section className="banner-main-container">
+      <h1 className="banner-main-text">
         Onde Ideias Se Encontram: Engaje, Explore, Evolua
       </h1>
     </section>
